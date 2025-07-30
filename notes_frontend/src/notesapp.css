@@ -1,0 +1,330 @@
+:root {
+  --primary: #1976d2;
+  --accent: #ffb300;
+  --secondary: #424242;
+  --bg-main: #fff;
+  --bg-sidebar: #f4f6fa;
+  --border-main: #e5e7eb;
+  --text-main: #222;
+  --text-muted: #666a74;
+}
+
+.NotesApp {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg-main);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+.TopBar {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  box-shadow: 0 1px 8px 0 rgba(23, 118, 210, 0.04);
+  padding: 0 18px;
+  z-index: 2;
+  background: var(--primary);
+}
+
+.SidebarToggle {
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  margin-right: 10px;
+  padding: 6px 5px 3px 3px;
+  font-size: 24px;
+  outline: none;
+  transition: background 0.15s;
+}
+.SidebarToggle:hover {
+  background: rgba(25, 118, 210, 0.08);
+  border-radius: 5px;
+}
+
+.AppLogoTitle {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.LayoutRow {
+  display: flex;
+  flex: 1 0 auto;
+  min-height: 0;
+}
+
+.Sidebar {
+  width: 270px;
+  min-width: 190px;
+  max-width: 340px;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border-main);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.SidebarHeader {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 14px 0 10px 22px;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+
+.NotesList {
+  flex: 1 1 auto;
+  list-style: none;
+  margin: 0;
+  padding: 0 6px 0 2px;
+  overflow-y: auto;
+  max-height: calc(100vh - 100px);
+}
+
+.NoteListItem {
+  background: none;
+  margin: 2px 0;
+  padding: 10px 12px 7px 18px;
+  border-radius: 7px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  color: var(--text-main);
+  transition: background 0.13s, border 0.15s;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.NoteListItem.selected,
+.NoteListItem:focus {
+  background: #e3f2fd;
+  border: 1px solid var(--primary);
+  outline: none;
+}
+
+.NoteTitleWrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.NoteTitle {
+  font-weight: 500;
+}
+.NoteListItemBtns {
+  display: flex;
+  gap: 8px;
+}
+.NoteListBtn {
+  border: none;
+  background: none;
+  font-size: 17px;
+  cursor: pointer;
+  color: var(--secondary);
+  padding: 0 2px;
+  margin-left: 0;
+  transition: color 0.13s;
+}
+.NoteListBtn:hover {
+  color: var(--primary);
+}
+.NoteSnippet {
+  color: var(--text-muted);
+  font-size: 0.95em;
+  padding-left: 2px;
+  margin-top: 2px;
+  word-break: break-word;
+}
+
+/* Main section */
+.MainContent {
+  flex: 1 1 auto;
+  padding: 36px 26px 42px 26px;
+  min-width: 0;
+  background: var(--bg-main);
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.Status,
+.Error,
+.EmptyState {
+  margin-top: 48px;
+  text-align: center;
+  font-size: 1.15rem;
+  color: var(--secondary);
+}
+.Error {
+  color: #b71c1c;
+}
+.EmptyState {
+  color: var(--primary);
+}
+
+.NoteView {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--border-main);
+  box-shadow: 0 2px 14px rgba(25, 118, 210, 0.06);
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 24px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.NoteView header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e1e1e1;
+  margin-bottom: 22px;
+}
+
+.NoteViewTitle {
+  font-weight: 600;
+  margin: 0 18px 0 0;
+  color: var(--primary);
+  font-size: 1.45rem;
+}
+
+.NoteViewBtns {
+  display: flex;
+  gap: 10px;
+}
+
+.NoteContent {
+  font-family: inherit;
+  font-size: 1.07rem;
+  color: var(--text-main);
+  margin: 0;
+  white-space: pre-wrap;
+  background: none;
+  border: none;
+  min-height: 3rem;
+  padding: 0;
+}
+
+.NoteEditForm {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--border-main);
+  box-shadow: 0 2px 14px rgba(25, 118, 210, 0.055);
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 40px;
+}
+
+.NoteEditForm h2 {
+  font-weight: 600;
+  font-size: 1.35rem;
+  margin: 0 0 16px 0;
+  color: var(--primary);
+}
+
+.EditTitleInput,
+.EditContentInput {
+  width: 100%;
+  margin-bottom: 14px;
+  border: 1.3px solid var(--border-main);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 1.03rem;
+  font-family: inherit;
+  outline: none;
+  transition: border 0.15s;
+}
+
+.EditTitleInput:focus,
+.EditContentInput:focus {
+  border: 1.3px solid var(--primary);
+}
+
+.EditBtns {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+}
+
+.Btn {
+  border-radius: 6px;
+  font-size: 1rem;
+  padding: 8px 22px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.16s, color 0.16s, border 0.14s;
+}
+.Btn.Primary {
+  background: var(--primary);
+  color: #fff;
+  border: 1.5px solid var(--primary);
+}
+.Btn.Primary:hover {
+  background: #1565c0;
+  border-color: #1565c0;
+}
+.Btn.Outlined {
+  background: #fff;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+}
+.Btn.Outlined:hover {
+  background: #e3f2fd;
+  color: #fff;
+}
+.Btn.Danger {
+  background: var(--secondary);
+  color: #fff;
+  border: 1.5px solid var(--secondary);
+}
+.Btn.Danger:hover {
+  background: #222;
+}
+
+.FloatingActionButton {
+  position: fixed;
+  bottom: 2.4rem;
+  right: 2.2rem;
+  width: 54px;
+  height: 54px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 2rem;
+  border: none;
+  box-shadow: 0 4px 18px rgba(255, 179, 0, 0.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  transition: background 0.15s, box-shadow 0.14s;
+}
+.FloatingActionButton:hover {
+  background: #ffa000;
+  box-shadow: 0 6px 25px 2px #ffb30044;
+}
+
+@media (max-width: 950px) {
+  .Sidebar { width: 185px; }
+  .MainContent { padding: 23px 6px 32px 6px; }
+  .NoteEditForm, .NoteView { padding: 18px 7vw; }
+}
+@media (max-width: 599px) {
+  .LayoutRow { flex-direction: column; }
+  .Sidebar { display: none; }
+  .TopBar { height: 49px; }
+  .MainContent { padding: 10px 2vw 14vw 2vw; max-width: 100vw; }
+  .FloatingActionButton { right: 1.3rem; bottom: 1.2rem; width: 45px; height: 45px; font-size: 1.48rem; }
+}
